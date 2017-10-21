@@ -74,6 +74,7 @@
     <Compile Include="Peliculas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadWritePeliculas.cs" />
     <EmbeddedResource Include="AgregarPelicula.resx">
       <DependentUpon>AgregarPelicula.cs</DependentUpon>
     </EmbeddedResource>

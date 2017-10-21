@@ -20,7 +20,7 @@ namespace ventaPeliculas
             nuevaPelicula.setActPrinc(tB_actor.Text);
             try
             {
-                nuevaPelicula.setGenero(tB_actor.Text);
+                nuevaPelicula.setGenero(tB_genero.Text);
                 double b = Convert.ToDouble(tB_precio.Text);
                 b = double.Parse(tB_precio.Text);
                 nuevaPelicula.setPrecio(b);
@@ -29,6 +29,8 @@ namespace ventaPeliculas
             {
                 DialogResult noValid = MessageBox.Show("no se pueden ingresar letras");
             }
+            ReadWritePeliculas writer = new ReadWritePeliculas();
+            writer.writePelicula(nuevaPelicula);
             Hide();
         }
 

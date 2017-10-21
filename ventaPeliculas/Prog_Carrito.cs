@@ -14,6 +14,33 @@ namespace ventaPeliculas
             InitializeComponent();
             listaPeliculas = new ArrayList();
             ventas = new ArrayList();
+            rellenarCatalogo();
+        }
+
+        /*
+         * proxy para rellenar el catalogo de datos
+         * autor Javier Mornoy
+         */
+
+        public void rellenarCatalogo()
+        {
+            ReadWritePeliculas reader = new ReadWritePeliculas();
+            ArrayList catalogo;//= new ArrayList();
+            catalogo = reader.readCatalogo();
+            if (catalogo == null)
+            {
+            }
+            else
+            {
+                int i;
+                Console.WriteLine("capcidad " + catalogo.Capacity);
+                for (i = 0; i < catalogo.Count; i++)
+                {
+                    System.Diagnostics.Debug.WriteLine(i);
+                    listPeliculas.Items.Add(catalogo[i].ToString());
+                    // Console.WriteLine(catalogo[i]);
+                }
+            }
         }
 
         //manda a llamar a la ventana de agregarPeliculas

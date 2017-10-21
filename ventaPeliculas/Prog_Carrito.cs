@@ -34,10 +34,13 @@ namespace ventaPeliculas
             {
                 int i;
                 Console.WriteLine("capcidad " + catalogo.Capacity);
+                String row = "";
+
                 for (i = 0; i < catalogo.Count; i++)
                 {
                     System.Diagnostics.Debug.WriteLine(i);
-                    listPeliculas.Items.Add(catalogo[i].ToString());
+                    listaPeliculas.Add(catalogo[i]);
+                    listPeliculas.Items.Add(catalogo[i]);
                     // Console.WriteLine(catalogo[i]);
                 }
             }

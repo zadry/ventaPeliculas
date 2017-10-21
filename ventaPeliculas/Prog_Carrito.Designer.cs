@@ -45,7 +45,7 @@
             this.carritoDeComprasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(397, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(827, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,10 +81,14 @@
             // 
             // listPeliculas
             // 
+            this.listPeliculas.ColumnWidth = 85;
             this.listPeliculas.FormattingEnabled = true;
             this.listPeliculas.Location = new System.Drawing.Point(21, 80);
+            this.listPeliculas.MultiColumn = true;
             this.listPeliculas.Name = "listPeliculas";
-            this.listPeliculas.Size = new System.Drawing.Size(346, 160);
+            this.listPeliculas.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listPeliculas.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listPeliculas.Size = new System.Drawing.Size(794, 225);
             this.listPeliculas.TabIndex = 1;
             this.listPeliculas.SelectedIndexChanged += new System.EventHandler(this.listPeliculas_SelectedIndexChanged);
             this.listPeliculas.DoubleClick += new System.EventHandler(this.listPeliculas_DoubleClick);
@@ -103,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 261);
+            this.ClientSize = new System.Drawing.Size(827, 459);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listPeliculas);
             this.Controls.Add(this.menuStrip1);

@@ -8,6 +8,7 @@ namespace ventaPeliculas
     {
         private ArrayList listaPeliculas;
         private ArrayList ventas;
+        protected ComboBox cantidad;
 
         public Prog_Carrito()
         {
@@ -15,6 +16,7 @@ namespace ventaPeliculas
             listaPeliculas = new ArrayList();
             ventas = new ArrayList();
             rellenarCatalogo();
+            cantidad = new ComboBox();
         }
 
         /*
@@ -38,7 +40,6 @@ namespace ventaPeliculas
 
                 for (i = 0; i < catalogo.Count; i++)
                 {
-                    System.Diagnostics.Debug.WriteLine(i);
                     listaPeliculas.Add(catalogo[i]);
                     listPeliculas.Items.Add(catalogo[i]);
                     // Console.WriteLine(catalogo[i]);
@@ -71,7 +72,9 @@ namespace ventaPeliculas
             int indeElem;
             indeElem = listPeliculas.SelectedIndex;
 
-            DialogResult res = MessageBox.Show("¿Desea agregar un al carrito de compras?: " + listaPeliculas[indeElem], "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show("¿Desea agregar un al carrito de compras?: " + listPeliculas.GetItemText(indeElem), "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            //  DialogResult res2 = MessageBox.Show("Numero de piezas : " + cantidad.Text, "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (res == DialogResult.Yes)
             {
@@ -80,17 +83,36 @@ namespace ventaPeliculas
                 venta = (Peliculas)listaPeliculas[indeElem];
 
                 ventas.Add(venta);
+                //verificar si el cliente quiere seguir comprando peliculas
+                DialogResult res2 = MessageBox.Show("¿Desea seguir comprando peliculas?: " + listPeliculas.GetItemText(indeElem), "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res2 == DialogResult.Yes)
+                {
+                }
+                else
+                {
+                    DetallesCarrito fes = new DetallesCarrito(ventas);
 
-                DialogResult res2 = MessageBox.Show("codigo" + venta.getCodigoBarras());
-
-                DetallesCarrito fes = new DetallesCarrito(ventas);
-
-                fes.ShowDialog();
+                    fes.ShowDialog();
+                }
             }
         }
 
         private void listPeliculas_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ventas.Count <= 0)
+            {
+                DialogResult res3 = MessageBox.Show("Aun no a realizado ninguna compra.");
+            }
+            else
+            {
+                DetallesCarrito fes = new DetallesCarrito(ventas);
+
+                fes.ShowDialog();
+            }
         }
     }
 }

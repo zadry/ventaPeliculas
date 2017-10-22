@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Diagnostics;
 
 namespace ventaPeliculas
 {
@@ -14,6 +15,7 @@ namespace ventaPeliculas
     {
         private ArrayList carrCom;
         private double total = 0;
+        private bool delete = false;
 
         public DetallesCarrito()
         {
@@ -76,6 +78,22 @@ namespace ventaPeliculas
             else
             {
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult res2 = MessageBox.Show("Haga doble click en la pelicula que desea eliminar");
+            // delete = true;
+            int index = listPelic.SelectedIndex;
+            Debug.Write("index" + index);
+
+            listPelic.Items.Clear();
+            //label2.Text = carrCom[index].ToString();
+
+            carrCom.RemoveAt(index);
+            fillCarrito();
+            this.total = 0;
+            calcularTotal();
         }
     }
 }

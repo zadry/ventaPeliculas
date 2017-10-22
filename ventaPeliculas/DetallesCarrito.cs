@@ -51,6 +51,7 @@ namespace ventaPeliculas
 
         private void calcularTotal()
         {
+            label3.Text = this.total.ToString();
             for (int i = 0; i < carrCom.Count; i++)
             {
                 total = total + ((Peliculas)carrCom[i]).getPrecio();
@@ -67,16 +68,22 @@ namespace ventaPeliculas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult res2 = MessageBox.Show("¿Seguro que quiere realizar esta compra?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res2 == DialogResult.Yes)
+            if (carrCom.Count == 0)
             {
-                carrCom = new ArrayList();
-                listPelic.Items.Clear();
-                fillCarrito();
-                label2.Text = "Su compra fue realizada con EXITO";
+                DialogResult res4 = MessageBox.Show("No hay peliculas en el carrito");
+                this.Close();
             }
             else
             {
+                DialogResult res2 = MessageBox.Show("¿Seguro que quiere realizar esta compra?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (res2 == DialogResult.Yes)
+                {
+                    carrCom = new ArrayList();
+                    listPelic.Items.Clear();
+                    fillCarrito();
+                    label2.Text = "Su compra fue realizada con EXITO";
+                }
             }
         }
 
@@ -94,6 +101,7 @@ namespace ventaPeliculas
             fillCarrito();
             this.total = 0;
             calcularTotal();
+            label2.Text = "Total: $" + total;
         }
     }
 }

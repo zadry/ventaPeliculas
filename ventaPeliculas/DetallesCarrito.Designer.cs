@@ -37,6 +37,7 @@ namespace ventaPeliculas
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,7 +54,7 @@ namespace ventaPeliculas
             this.listPelic.FormattingEnabled = true;
             this.listPelic.Location = new System.Drawing.Point(12, 41);
             this.listPelic.Name = "listPelic";
-            this.listPelic.Size = new System.Drawing.Size(250, 134);
+            this.listPelic.Size = new System.Drawing.Size(359, 134);
             this.listPelic.TabIndex = 1;
             this.listPelic.SelectedIndexChanged += new System.EventHandler(this.listPelic_SelectedIndexChanged);
             // 
@@ -78,7 +79,7 @@ namespace ventaPeliculas
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(285, 41);
+            this.button2.Location = new System.Drawing.Point(403, 41);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 23);
             this.button2.TabIndex = 4;
@@ -86,11 +87,20 @@ namespace ventaPeliculas
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(363, 301);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 5;
+            // 
             // DetallesCarrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 392);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -111,5 +121,6 @@ namespace ventaPeliculas
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
     }
 }
